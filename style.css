@@ -21,12 +21,14 @@ body {
 #running-text {
     position: absolute;
     white-space: nowrap;
-    top: 20%;
-    right: -100%;
+    top: 30%;
+    left: 100%; /* Kita pakai left saja supaya lebih stabil */
     font-family: 'Ink Free', cursive;
-    font-size: 30px; /* Lebih kecil untuk HP */
+    font-size: 30px; /* Ukuran pas buat HP */
     font-weight: bold;
-    transition: right 8s linear;
+    color: #333;
+    z-index: 10;
+    transition: left 8s linear; /* Animasi gerak ke kiri */
 }
 
 /* Tombol & Kotak */

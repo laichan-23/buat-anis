@@ -11,30 +11,23 @@ let currentPhoto = 1;
 
 // Start Animation on Load
 window.onload = () => {
-    // Interaksi user untuk mulai musik
+    // Mulai musik saat klik pertama kali di layar
     document.body.onclick = () => {
         bgMusic.play();
         document.body.onclick = null;
     };
 
+    // Kasih jeda sedikit lalu gerakkan teks dari kanan ke kiri
     setTimeout(() => {
-        runningText.style.right = '100%';
+        runningText.style.left = '-150%'; 
     }, 500);
 
-    // Tombol muncul mengikuti teks sampai tengah
+    // Munculkan tombol di tengah setelah teks lewat
     setTimeout(() => {
         tombol.style.display = 'block';
-        tombol.style.right = '-150px'; 
-        let pos = -150;
-        let interval = setInterval(() => {
-            pos += 5;
-            tombol.style.left = pos + 'px';
-            if (pos >= window.innerWidth / 2) {
-                clearInterval(interval);
-                tombol.style.left = '50%';
-            }
-        }, 10);
-    }, 3000);
+        tombol.style.left = '50%';
+        tombol.style.top = '50%';
+    }, 4000); 
 };
 
 // Klik Tombol PNG
