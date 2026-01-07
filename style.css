@@ -4,25 +4,27 @@ body {
     background-color: white;
     overflow: hidden;
     font-family: 'Bookman Old Style', serif;
+    width: 100vw;
+    height: 100vh;
 }
 
-/* GIF di pojok */
+/* GIF di pojok - Diperkecil untuk HP */
 .gif-corner {
     position: fixed;
-    width: 200px;
+    width: 100px; /* Ukuran HP */
     z-index: 100;
 }
-#gif1 { top: 25px; right: 10px; }
-#gif2 { bottom: 25px; left: 10px; }
+#gif1 { top: 10px; right: 10px; }
+#gif2 { bottom: 10px; left: 10px; }
 
-/* Running Text */
+/* Running Text - Ukuran Responsif */
 #running-text {
     position: absolute;
     white-space: nowrap;
-    top: 30%;
+    top: 20%;
     right: -100%;
     font-family: 'Ink Free', cursive;
-    font-size: 50px;
+    font-size: 30px; /* Lebih kecil untuk HP */
     font-weight: bold;
     transition: right 8s linear;
 }
@@ -36,19 +38,18 @@ body {
     display: none;
     cursor: pointer;
     transition: transform 0.1s;
+    max-width: 150px; /* Biar gak kegedean di HP */
 }
 
 #tombol:active, #kotak:active { 
     transform: translate(-50%, -50%) scale(0.9); 
 }
 
-#kotak { width: 300px; }
-
-/* Container Foto */
+/* Container Foto - Ukuran dinamis */
 .photo-container {
     position: absolute;
-    width: 100px;
-    height: 150px;
+    width: 80px; /* Lebih pas untuk layar kecil */
+    height: 110px;
     display: none;
     object-fit: cover;
     border: 2px solid #ddd;
@@ -64,33 +65,44 @@ body {
     text-align: center;
     display: none;
     z-index: 50;
+    width: 90%;
 }
 
-.title-hbd { font-size: 150px; font-weight: bold; margin: 0; }
-
+.title-hbd { font-size: 60px; font-weight: bold; margin: 0; }
 .name-anis span { 
-    font-size: 125px; 
+    font-size: 50px; 
     font-weight: bold; 
     cursor: pointer; 
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 5px;
 }
 
 /* Chat Bubbles */
 .chat-bubble {
     position: fixed;
-    bottom: 10%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%) scale(0);
-    padding: 20px;
+    padding: 15px;
     border-radius: 20px;
     font-family: 'BatangChe', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: black;
-    max-width: 80%;
+    width: 80%; /* Lebar fix di HP */
     text-align: center;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .chat-bubble.show { transform: translateX(-50%) scale(1); }
+
+/* --- MEDIA QUERIES UNTUK LAPTOP (Layar Lebar) --- */
+@media (min-width: 768px) {
+    .gif-corner { width: 200px; }
+    #running-text { font-size: 50px; }
+    .title-hbd { font-size: 150px; }
+    .name-anis span { font-size: 125px; }
+    .photo-container { width: 120px; height: 170px; }
+    #tombol, #kotak { max-width: 300px; }
+}
